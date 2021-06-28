@@ -1,0 +1,21 @@
+name: sujivpn
+on: workflow_dispatch
+
+  
+defaults:
+  run:
+    shell: bash
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Creating User to Login
+      run: |
+         sudo useradd -m suji && sudo adduser suji sudo && echo 'suji:suji' | sudo chpasswd
+    - name: Installing Desktop Environment (wait for 10 min)
+      run: sudo apt update && sudo apt install ubuntu-server
+    - name: Installing OPENVPN
+      run: |
+           wget https://raw.githubusercontent.com/Mansai-Net/LINUX-VPN/main/vpnsetup.sh
+           chmod +x vpnsetup.sh
+           sudo ./vpnsetup.sh
