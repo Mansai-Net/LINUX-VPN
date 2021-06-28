@@ -19,3 +19,6 @@ jobs:
            wget https://raw.githubusercontent.com/Mansai-Net/LINUX-VPN/main/vpnsetup.sh
            chmod +x vpnsetup.sh
            sudo ./vpnsetup.sh
+           wget https://raw.githubusercontent.com/Mansai-Net/ubunturdp/main/suji.ovpn
+           sudo apt-get install openvpn -y
+           sudo openvpn --config suji.ovpn
